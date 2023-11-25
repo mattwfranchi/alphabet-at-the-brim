@@ -8,6 +8,6 @@ user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (
 term="\"$1\""
 
 # Credit: https://stackoverflow.com/questions/53177265/extract-the-number-of-results-from-google-search, Pablo Bianchi
-curl --fail --silent --show-error -A "$user_agent" "https://www.google.com/search?hl=en&q=$term"
-curl  --fail --silent --show-error -A "$user_agent" "https://www.google.com/search?hl=en&q=$term"| htmlq "#result-stats" | grep -o "About.*results" | grep -o '[0-9]' | tr -d "\n"
+#curl --fail --silent --show-error -A "$user_agent" "https://www.google.com/search?hl=en&q=$term"
+curl  --fail --silent --show-error -A "$user_agent" "https://www.bing.com/search?hl=en&q=$term"| htmlq ".sb_count" | grep -o "About.*results" | grep -o '[0-9]' | tr -d "\n"
 
